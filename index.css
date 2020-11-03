@@ -1,5 +1,254 @@
-.main.container div {
+body {
+	font-family          : sans-serif;
+	background-image     : url('picture/background2.png');
+	background-color     : rgb(231, 231, 231);
+	background-repeat    : no-repeat;
+	background-position-y: 100px;
+	background-size      : contain;
+	width                : auto;
 }
+
+.container {
+	padding: 0px;
+}
+
+.header {
+	position        : fixed;
+	background-color: rgb(255, 0, 0);
+	color           : white;
+	top             : 0;
+	z-index         : 999;
+}
+
+a {
+	text-decoration: none;
+	color          : white;
+}
+
+.header-top {
+	padding        : 5px;
+	height         : 20px;
+	font-size      : small;
+	display        : flex;
+	justify-content: space-between;
+}
+
+.header-top-right {
+	display        : flex;
+	justify-content: space-between;
+}
+
+.header-top-right-item {
+	margin-left: 20px;
+}
+
+.header-bottom {
+	padding-top   : 15px;
+	padding-bottom: 15px;
+}
+
+.nav-item {
+	margin-left : 20px;
+	margin-right: 20px;
+}
+
+.pic {
+	width: 50px;
+}
+
+.header-bottom .search-form-warp {
+	padding: 0px;
+	width  : 100%;
+}
+
+.header-bottom .search-form {
+	display         : flex;
+	flex-direction  : row;
+	padding         : 3px;
+	border-radius   : 3px;
+	width           : 100%;
+	background-color: white;
+	justify-content : space-between;
+}
+
+.header-bottom .search-form .search-input {
+	width           : 90%;
+	background-color: transparent;
+	border          : none;
+	outline         : none;
+	height          : 40px;
+}
+
+.header-bottom .search-form .search-img-warp {
+	display         : flex;
+	flex-direction  : column;
+	justify-content : center;
+	border          : none;
+	padding-left    : 20px;
+	padding-right   : 20px;
+	background-color: rgb(255, 0, 0);
+	position        : relative;
+	height          : 40px;
+}
+
+.header-bottom .search-form .search-img-warp:hover {
+	background-color: rgb(223, 3, 3);
+}
+
+.header-bottom .search-form .search-img {
+	border: none;
+	margin: auto;
+	height: 18px;
+}
+
 .main {
-	background-color: blue;
+	margin    : auto;
+	margin-top: 170px;
+	width     : 1140px;
+}
+
+.promotion {
+	margin-top: 150px;
+	display   : flex;
+}
+
+.promotion .promotion-left {
+	padding         : 0px;
+	background-color: aqua;
+	height          : 240px;
+}
+
+.promotion .promotion-right {
+	padding        : 0px;
+	padding-left   : 5px;
+	display        : flex;
+	flex-direction : column;
+	justify-content: space-between;
+}
+
+.carousel-item {
+	height         : 100%;
+	background-size: cover;
+}
+
+.carousel-item-1 {
+	height          : 240px;
+	background-image: url('picture/promotion/1.png');
+}
+
+.carousel-item-2 {
+	height          : 240px;
+	background-image: url('picture/promotion/4.jpg');
+}
+
+.carousel-item-3 {
+	height          : 240px;
+	background-image: url('picture/promotion/3.png');
+}
+
+.promotion-right-item {
+	background-image   : url('picture/promotion/1.png');
+	border-image-repeat: none;
+	background-size    : cover;
+	border-radius      : 3px;
+	height             : 118px;
+}
+
+.category {
+	padding         : 0px;
+	display         : flex;
+	flex-direction  : row;
+	margin-top      : 50px;
+	background-color: white;
+
+	height: 160px;
+}
+
+.category .col-2 {
+	padding: 0px;
+}
+
+.category-col {
+	display        : flex;
+	height         : 100%;
+	flex-direction : column;
+	justify-content: space-evenly;
+}
+
+.category-item {
+	background-color: white;
+	display         : flex;
+	flex-direction  : row;
+	justify-content : space-between;
+	height          : 80px;
+	outline         : 1px solid rgb(218, 218, 218);
+}
+
+.category-item:hover {
+	box-shadow: 0px 1px 0px 1px gainsboro;
+
+	border-bottom: 4px solid red;
+}
+
+.category-item-img {
+	margin-right: 10px;
+	height      : 60px;
+	width       : 60px;
+}
+
+.products {
+	margin-top: 50px;
+	padding   : 0px;
+}
+
+.products .row {
+	margin: auto;
+}
+
+.col-2 {
+	padding: 4px;
+}
+
+.products-item {
+	border-radius   : 2px;
+	color           : rgb(59, 59, 59);
+	display         : flex;
+	flex-direction  : column;
+	justify-content : space-evenly;
+	background-color: white;
+	height          : 300px;
+}
+
+.products-item:hover {
+	text-decoration: none;
+	color          : rgb(65, 64, 64);
+	height         : 290px;
+	outline        : 1px solid red;
+	box-shadow     : 0px 3px 3px 5px gainsboro;
+}
+
+.products-item-img {
+	width: 100%;
+}
+
+.products-item p {
+	height    : 30px;
+	word-break: break-all;
+	width     : 100%;
+	padding   : 7px;
+}
+
+.products-item-price {
+	color  : orange;
+	padding: 7px;
+}
+
+@media (max-width: 768px) {
+	.header-bottom .search-form {
+		width: 70%;
+	}
+
+	.promotion .promotion-right {
+		display: none;
+	}
 }
