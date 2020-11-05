@@ -1,13 +1,8 @@
 <?php
 require "config.php";
-
 try {
     $statment = $conn->prepare("insert into `HangHoa`(MSHH, TenHH, Gia, SoLuongHang, MaNhom, Hinh, MoTaHH) values (?,?,?,?,?,?,?)");
     $statment->bind_param("ssiisss", $MSHH, $TenHH, $Gia, $SoluongHang, $MaNhom, $Hinh, $MoTaHH);
-
-    echo $_POST['MSHH'];
-    echo $_POST['MoTaHH'];
-
     $MSHH = $_POST['MSHH'];
     $TenHH = $_POST['TenHH'];
     $Gia = $_POST['Gia'];
