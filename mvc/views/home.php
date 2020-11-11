@@ -35,9 +35,7 @@
                     <button class="search-img-warp">
                         <img class="search-img" src="picture/searchpng.png">
                     </button>
-
                 </div>
-
             </form>
             <img style="width: 30px;" class="nav-item" src="picture/cart.png">
         </nav>
