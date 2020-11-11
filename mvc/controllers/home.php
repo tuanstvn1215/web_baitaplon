@@ -1,9 +1,10 @@
 <?php
-class home
+class Home extends Controller
+
 {
     function index()
     {
-        echo 'áda';
+        require_once('./mvc/views/test.php');
     }
     function sayhello($ho, $ten)
     {

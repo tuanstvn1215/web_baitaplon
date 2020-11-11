@@ -29,8 +29,9 @@ class App
             }
         }
         try {
-            $rs = call_user_func_array([$this->controller, $this->action], $this->params);
-        } catch (Exception $e) {
+            call_user_func_array([$this->controller, $this->action], $this->params);
+        } catch (Throwable $e) {
+            require_once './mvc/controllers/home.php';
             call_user_func_array(['home', 'index'], []);
         }
     }
