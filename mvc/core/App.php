@@ -15,7 +15,7 @@ class App
         }
 
         require_once './mvc/controllers/' . $this->controller . '.php';
-
+        $this->controller = new $this->controller;
         //xử lý action
         if (isset($arrUrl[1])) {
 
@@ -31,8 +31,9 @@ class App
         try {
             call_user_func_array([$this->controller, $this->action], $this->params);
         } catch (Throwable $e) {
-            require_once './mvc/controllers/home.php';
-            call_user_func_array(['home', 'index'], []);
+            require_once './mvc/controllers/Home.php';
+            $Home = new Home();
+            $Home->index();
         }
     }
 
