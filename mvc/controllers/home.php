@@ -11,7 +11,7 @@ class Home extends Controller
     }
     function sayhello($ho, $ten)
     {
-        echo 'hello ' . $ho . ' ' . $ten;
+        echo 'hello ';
     }
     function add()
     {
