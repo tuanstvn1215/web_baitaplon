@@ -28,13 +28,8 @@ class App
                 print_r($arrUrl);
             }
         }
-        try {
-            call_user_func_array([$this->controller, $this->action], $this->params);
-        } catch (Throwable $e) {
-            require_once './mvc/controllers/Home.php';
-            $Home = new Home();
-            $Home->index();
-        }
+
+        call_user_func_array([$this->controller, $this->action], $this->params);
     }
 
     //xử lý url thành mảng arrUrl

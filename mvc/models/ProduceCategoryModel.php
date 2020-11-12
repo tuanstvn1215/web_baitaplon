@@ -2,6 +2,7 @@
 class ProduceCategoryModel extends Db
 {
     protected $table = 'NhomHangHoa';
+
     public function getAllCategory()
 
     {
