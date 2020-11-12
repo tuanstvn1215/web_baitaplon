@@ -37,29 +37,39 @@ class Db
         }
         return $data;
     }
-    // public function Set($table, $idName, $id, $data)
-    // {
-    //     $flag = false;
-    //     try {
-    //         unset($data[$idName]);
-    //         $params_string = $data;
-    //         $params_type_string = 's';
-    //         for ($i = 1; $i < count($data); $i++) {
-    //             $params_string .= ',?';
-    //             $params_type_string .= 's';
-    //             $querry_string = 'UPDATE ' . $table . '
-    //             SET TenHH=?, Gia=?, SoLuongHang=?, MaNhom=?, Hinh=?, MoTaHH=?
-    //             WHERE MSHH=?';
-    //         }
+    public function Set($table, $idName, $data)
+    {
+        $id = $data[$idName];
+        $flag = false;
+        try {
+            // tạo chuỗi lệnh sửa
+            $params_string = '';
+            $params_type_string = 's';
 
-    //         $statment = $this->conn->prepare();
-    //         $statment->bind_param("sssssss", $TenHH, $Gia, $SoluongHang, $MaNhom, $Hinh, $MoTaHH, $MSHH);
-    //         $flag = $statment->execute();
-    //     } catch (\Throwable $th) {
-    //         $th->getMessage();
-    //     }
-    //     return  $flag;
-    // }
+            foreach ($data as $key => $value) {
+                if ($key == $idName)
+                    $params_string .=  $key . '=?';
+                else
+                    $params_string .= ',' . $key . '=?';
+
+
+                $params_type_string .= 's';
+            }
+
+
+            $querry_string = 'UPDATE ' . $table . '
+                SET ' . $params_string . ' 
+                WHERE ' . $idName . '=?';
+            $data = array_values($data);
+            array_push($data, $id);
+            $statment = $this->conn->prepare($querry_string);
+            $statment->bind_param($params_type_string, ...$data);
+            $flag = $statment->execute();
+        } catch (Throwable $th) {
+            echo $th->getMessage();
+        }
+        return  $flag;
+    }
     public function Insert($table, $data)
     {
         try {
@@ -78,7 +88,7 @@ class Db
             return true;
         } catch (Exception $th) {
 
-            $th->getMessage();
+            echo $th->getMessage();
         }
         return false;
     }

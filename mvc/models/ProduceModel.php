@@ -10,9 +10,9 @@ class ProduceModel extends Db
         $Produces = $this->GetAll($this->table);
         return $Produces;
     }
-    public function  getProduce()
+    public function  getProduce($id)
     {
-        $Produce = $this->Get($this->table, $this->id_field, $_GET['MSHH']);
+        $Produce = $this->Get($this->table, $this->id_field, $id);
         return $Produce;
     }
 
@@ -22,26 +22,9 @@ class ProduceModel extends Db
         return $this->Insert($this->table, $data);
         //trả về true false
     }
-    public function setProduce()
-    {
-        // $this->Set($this->table, $this->id_field, $_POST[$this->id_field], $_POST);
-        $flag = false;
-        try {
-            $MSHH = $_POST['MSHH'];
-            $TenHH = $_POST['TenHH'];
-            $Gia = $_POST['Gia'];
-            $SoluongHang = $_POST['SoluongHang'];
-            $MaNhom = $_POST['MaNhom'];
-            $Hinh = $_POST['Hinh'];
-            $MoTaHH = $_POST['MoTaHH'];
-            $statment = $this->conn->prepare('UPDATE HangHoa SET 
-                SET TenHH=?, Gia=?, SoLuongHang=?, MaNhom=?, Hinh=?, MoTaHH=?
-                WHERE MSHH=?');
-            $statment->bind_param("sssssss", $TenHH, $Gia, $SoluongHang, $MaNhom, $Hinh, $MoTaHH, $MSHH);
-            $flag = $statment->execute();
-        } catch (\Throwable $th) {
-            $th->getMessage();
-        }
-        return  $flag;
+    public function setProduce($data)
+    { //gọi hàm sửa cơ sở dữ liệu trong lớp cha
+        return $this->Set($this->table, $this->id_field, $data);
+        //trả về true false
     }
 }

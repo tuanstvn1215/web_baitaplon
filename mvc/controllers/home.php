@@ -19,4 +19,9 @@ class Home extends Controller
         $produce = $this->model('ProduceModel');
         $produce->addProduce($_POST);
     }
+    function set()
+    {
+        $produce = $this->model('ProduceModel');
+        $produce->setProduce($_POST);
+    }
 }
