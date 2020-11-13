@@ -25,7 +25,6 @@ class App
 
                 //xử lý params---------------
                 $this->params = array_values($arrUrl);
-                print_r($arrUrl);
             }
         }
 

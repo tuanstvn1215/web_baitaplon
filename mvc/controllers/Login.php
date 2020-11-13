@@ -1,20 +1,22 @@
 <?php
-class Home extends Controller
+class Login extends Controller
 {
-    function getLogin()
+    function index()
     {
         $index = $this->view('login', $data = 'index');
     }
-    function getSignUp()
+    function SignUp()
     {
         $index = $this->view('login', $data = 'signup');
     }
     function postLogin()
     {
+
         $index = $this->view('login', $data = 'index');
     }
     function postSignUp()
     {
-        $index = $this->view('login', $data = 'signup');
+        $Custumer = $this->model('CustumerModel');
+        $Custumer->addCustomer();
     }
 }

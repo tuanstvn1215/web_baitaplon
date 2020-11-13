@@ -2,18 +2,18 @@ CREATE database web;
 use web;
 CREATE TABLE NhomHangHoa
 (
-	MaNhom char(5) PRIMARY KEY,
+	MaNhom char(23) PRIMARY KEY,
 	TenNhom varchar(50) not null
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE HangHoa
 (
-	MSHH char(5) PRIMARY KEY,
+	MSHH char(23) PRIMARY KEY,
 	TenHH varchar(50) not null,
 	Gia int not null,
 	SoLuongHang tinyint not null,
-	MaNhom char(5) not null,
+	MaNhom char(23) not null,
 	Hinh varchar(200) not null,
 	MoTaHH varchar(200),
 	CONSTRAINT fk_NhomHangHoa FOREIGN KEY (MaNhom) REFERENCES NhomHangHoa(MaNhom)
@@ -23,7 +23,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE NhanVien
 (
-	MSNV char(5) PRIMARY KEY,
+	MSNV char(30) PRIMARY KEY,
 	HoTenNV varchar(50) not null,
 	ChucVu varchar(50) not null,
 	DiaChi varchar(50) ,
@@ -34,7 +34,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE KhachHang
 (
-	MSKH char(5) PRIMARY KEY,
+	MSKH char(30) PRIMARY KEY,
 	HoTenKH varchar(50) not null,
 	DiaChi varchar(50) not null ,
 	SoDienThoai varchar(10) not null,
@@ -46,9 +46,9 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE DatHang
 (
-	SoDonDH char(5) PRIMARY KEY,
-	MSKH char(5) not null,
-	MSNV char(5) not null ,
+	SoDonDH char(23) PRIMARY KEY,
+	MSKH char(23) not null,
+	MSNV char(23) not null ,
 	NgayDH datetime not null,
 	TrangThai varchar(10) not null,
 	CONSTRAINT pk_KhachHang FOREIGN KEY (MSKH) REFERENCES KhachHang(MSKH),
@@ -58,8 +58,8 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE ChiTietDatHang
 (
-	SoDonDH char(5) PRIMARY KEY,
-	MSHH char(5) not null,
+	SoDonDH char(23) PRIMARY KEY,
+	MSHH char(23) not null,
 	SoLuong tinyint not null,
 	GiaDatHang real,
 	CONSTRAINT pk_HangHoa FOREIGN KEY (MSHH) REFERENCES HangHoa(MSHH),
