@@ -23,7 +23,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE NhanVien
 (
-	MSNV char(30) PRIMARY KEY,
+	MSNV varchar(30) PRIMARY KEY,
 	HoTenNV varchar(50) not null,
 	ChucVu varchar(50) not null,
 	DiaChi varchar(50) ,
@@ -34,7 +34,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE KhachHang
 (
-	MSKH char(30) PRIMARY KEY,
+	MSKH varchar(30) PRIMARY KEY,
 	HoTenKH varchar(50) not null,
 	DiaChi varchar(50) not null ,
 	SoDienThoai varchar(10) not null,

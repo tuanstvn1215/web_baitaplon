@@ -16,7 +16,13 @@ class Login extends Controller
     }
     function postSignUp()
     {
-        $Custumer = $this->model('CustumerModel');
-        $Custumer->addCustomer();
+        $Custumer = $this->model('CustomerModel');
+        $data[0] = $_POST['MSKH'];
+        $data[1] = $_POST['HoTenKH'];
+        $data[2] = $_POST['DiaChi'];
+        $data[3] = $_POST['SoDienThoai'];
+        $data[4] = $_POST['MatKhau'];
+        echo $data;
+        echo $Custumer->addCustomer($data);
     }
 }

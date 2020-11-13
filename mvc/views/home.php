@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <link rel="stylesheet" href='./public/css/home.css'>
+    <link rel="stylesheet" href='/B1704786/public/css/home.css'>
     <div class="header container-fluid ">
         <div class="header-top container ">
             <div class="header-top-right">

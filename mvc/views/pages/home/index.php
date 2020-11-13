@@ -1,4 +1,4 @@
-<link rel="stylesheet" href='./public/css/home/index.css'>
+<link rel="stylesheet" href='/B1704786/public/css/home/index.css'>
 <div class="promotion ">
     <div class="col-12 col-md-8 promotion-left">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

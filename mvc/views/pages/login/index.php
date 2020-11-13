@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../public/css/login/index.css">
+<link rel="stylesheet" href="/B1704786/public/css/login/index.css">
 <div class="warp">
     <form class="form" action="./login/postLogin" method="POST" enctype="multipart/form-data">
         <div class="form-title">
