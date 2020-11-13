@@ -1,43 +1,31 @@
+
 <?php
 class ProduceCategoryModel extends Db
 {
-    protected $table = 'NhomHangHoa';
-
+    protected $table = 'HangHoa';
+    protected $id_field = 'MSHH';
     public function getAllCategory()
 
     {
-        $Produces = $this->GetAll($this->table);
-        return $Produces;
+        //gọi hàm lấy dữ liệu từ cơ sở dữ liệu từ lớp cha
+        $Categorys = $this->GetAll($this->table);
+        return $Categorys;
     }
-    public function  getCategory()
+    public function  getCategory($id)
     {
-        $Produce = $this->Get($this->table, 'MSHH', $_GET['MSHH']);
-        return $Produce;
+        $Category = $this->Get($this->table, $this->id_field, $id);
+        return $Category;
     }
 
-    public function addCategory()
+    public function addCategory($data)
     {
-        $this->Insert($this->table, $_POST);
+        //gọi hàm thêm vào cơ sở dữ liệu trong lớp cha
+        return $this->Insert($this->table, $data);
+        //trả về true false
     }
-    public function setCategory()
-    {
-        $flag = false;
-        try {
-            $MSHH = $_POST['MSHH'];
-            $TenHH = $_POST['TenHH'];
-            $Gia = $_POST['Gia'];
-            $SoluongHang = $_POST['SoluongHang'];
-            $MaNhom = $_POST['MaNhom'];
-            $Hinh = $_POST['Hinh'];
-            $MoTaHH = $_POST['MoTaHH'];
-            $statment = $this->conn->prepare('UPDATE HangHoa SET 
-                SET TenHH=?, Gia=?, SoLuongHang=?, MaNhom=?, Hinh=?, MoTaHH=?
-                WHERE MSHH=?');
-            $statment->bind_param("sssssss", $TenHH, $Gia, $SoluongHang, $MaNhom, $Hinh, $MoTaHH, $MSHH);
-            $flag = $statment->execute();
-        } catch (\Throwable $th) {
-            $th->getMessage();
-        }
-        return  $flag;
+    public function setCategory($data)
+    { //gọi hàm sửa cơ sở dữ liệu trong lớp cha
+        return $this->Set($this->table, $this->id_field, $data);
+        //trả về true false
     }
 }

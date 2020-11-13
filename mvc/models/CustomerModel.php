@@ -1,31 +1,30 @@
 <?php
-class EmployeeModel extends Db
+class CustomerModel extends Db
 {
-    protected $table = 'NhanVien';
-    protected $id_field = 'MSNV';
-    public function getAllEmployee()
+    protected $table = 'KhachHang';
+    protected $id_field = 'MSKH';
+    public function getAllCustomer()
 
     {
         //gọi hàm lấy dữ liệu từ cơ sở dữ liệu từ lớp cha
-        $Employee = $this->GetAll($this->table);
-        return $Employee;
+        $Customers = $this->GetAll($this->table);
+        return $Customers;
     }
-    public function  getEmployee($id)
+    public function  getCustomer($id)
     {
-        $Employee = $this->Get($this->table, $this->id_field, $id);
-        return $Employee;
+        $Customer = $this->Get($this->table, $this->id_field, $id);
+        return $Customer;
     }
 
-    public function addEmployee($data)
+    public function addCustomer($data)
     {
         //gọi hàm thêm vào cơ sở dữ liệu trong lớp cha
         return $this->Insert($this->table, $data);
         //trả về true false
     }
-    public function setEmployee($data)
+    public function setCustomer($data)
     { //gọi hàm sửa cơ sở dữ liệu trong lớp cha
         return $this->Set($this->table, $this->id_field, $data);
         //trả về true false
     }
 }
-//
