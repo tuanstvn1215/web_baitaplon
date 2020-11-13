@@ -7,8 +7,8 @@ class EmployeeModel extends Db
 
     {
         //gọi hàm lấy dữ liệu từ cơ sở dữ liệu từ lớp cha
-        $Employee = $this->GetAll($this->table);
-        return $Employee;
+        $Employees = $this->GetAll($this->table);
+        return $Employees;
     }
     public function  getEmployee($id)
     {

@@ -2,8 +2,8 @@
 <?php
 class ProduceCategoryModel extends Db
 {
-    protected $table = 'HangHoa';
-    protected $id_field = 'MSHH';
+    protected $table = 'NhomHangHoa';
+    protected $id_field = 'MaNhom';
     public function getAllCategory()
 
     {
