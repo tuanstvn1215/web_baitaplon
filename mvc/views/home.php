@@ -15,7 +15,7 @@
 
 <body>
     <link rel="stylesheet" href='/B1704786/public/css/home.css'>
-    <div class="header container-fluid ">
+    <div class="header container-fluid">
         <div class="header-top container ">
             <div class="header-top-right">
                 <a href="#">Đăng Kí</a>
@@ -28,16 +28,16 @@
 
         </div>
         <nav class="navbar navbar-expand navbar-dark header-bottom container">
-            <a class="nav-item"><img class="pic" src="picture/shop.svg"></a>
+            <a class="nav-item"><img class="pic" src="/B1704786/public/picture/shop.svg"></a>
             <form class="nav-item search-form-warp" method="get">
                 <div class="search-form">
                     <input class="search-input" type="text">
                     <button class="search-img-warp">
-                        <img class="search-img" src="picture/searchpng.png">
+                        <img class="search-img" src="/B1704786/public/picture/searchpng.png">
                     </button>
                 </div>
             </form>
-            <img style="width: 30px;" class="nav-item" src="picture/cart.png">
+            <img style="width: 30px;" class="nav-item" src="/B1704786/public/images/icon/cart.png">
         </nav>
     </div>
     <div class="content">

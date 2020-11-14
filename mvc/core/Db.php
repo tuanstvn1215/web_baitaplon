@@ -19,8 +19,7 @@ class Db
             $statment = $this->conn->prepare('SELECT * FROM ' . $table . ' WHERE ' . $idName . ' = ?');
             $statment->bind_param('s', $id);
             $statment->execute();
-            $data = $statment->get_result();
-            $data->fetch_assoc();
+            $data = $statment->get_result()->fetch_assoc();
         } catch (Throwable $th) {
             $th->getMessage();
         }
