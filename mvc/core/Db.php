@@ -12,7 +12,6 @@ class Db
 
         $this->conn = new mysqli($this->db_servername, $this->db_username, $this->db_password, $this->db_name);
         $this->conn->set_charset("utf8");
-        require_once('./mvc/config/host.php');
     }
     public function Get($table, $idName, $id)
     {

@@ -2,9 +2,8 @@
 class Controller
 {   //Model
 
-    function __construct()
+    public function __construct()
     {
-        require_once('./mvc/config/host.php');
     }
     public function model($model)
     {
