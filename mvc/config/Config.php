@@ -1,6 +1,9 @@
 <?php
 class Config
 {
+    private $allowImgType = ['jpg', 'png', 'jpeg'];
+    private $maxImgsizeMB = 4;
+    private $upload_dir = './public/images/uploads';
     function __construct()
     {
     }
@@ -8,9 +11,10 @@ class Config
     {
 
         return $produce_img = [
-            $allowImgTypes = ['jpg', 'png', 'jpeg'],
-            $maxImgsizeMB = 4,
-            $maxImgsizebyte   = 1048576 * $maxImgsizeMB
+            'allowImgTypes' => $this->allowImgType,
+            'maxImgsizeMB' => $this->maxImgsizeMB,
+            'maxImgsizebyte' =>  1048576 * $this->maxImgsizeMB,
+            'upload_dir' => $this->upload_dir . '/produce'
         ];
     }
 };
