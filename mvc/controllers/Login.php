@@ -5,7 +5,7 @@ class Login extends Controller
     function __construct()
     {
         $Authenticate = $this->middleware('AuthenticateMiddleware');
-        $Authenticate->Login();
+        $Authenticate->requireLogin();
     }
     function index()
     {

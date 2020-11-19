@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="/B1704786/public/css/login/index.css">
+<link rel="stylesheet" href="<?= host ?>/public/css/login/index.css">
 <div class="warp">
-    <form class="form" action="/B1704786/login/postLogin" method="POST" enctype="multipart/form-data">
+    <form class="form" action="<?= host ?>/login/postLogin" method="POST" enctype="multipart/form-data">
         <div class="form-title">
             Đăng Nhập
         </div>

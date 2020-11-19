@@ -42,7 +42,7 @@
     </div>
     <div class="content">
         <?php
-        require_once('./mvc/views/pages/home/index.php')
+        require_once('./mvc/views/pages/home/' . $data['page'] . '.php')
         ?>
     </div>
     <div class="footer container">

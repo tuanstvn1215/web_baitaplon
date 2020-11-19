@@ -7,14 +7,12 @@ class Home extends Controller
         $produce = $this->model('ProduceModel');
         $AllProduce = $produce->getAllProduce();
         $produce->getAllProduce();
-        $index = $this->view('home', $data = ['page', 'index', 'AllProduce' => $AllProduce]);
+        $block = ['header', 'footer'];
+        $index = $this->view('home', $data = ['page' => 'index', 'block' => $block, 'AllProduce' => $AllProduce]);
     }
-    function sayhello($ho, $ten)
-    {
-    }
+
     function addProduce()
     {
-        print_r($_POST);
         $produce = $this->model('ProduceModel');
         $produce->addProduce($_POST);
     }
@@ -29,12 +27,6 @@ class Home extends Controller
         print_r($_POST);
         $produce = $this->model('CustomerModel');
         $produce->addCustomer($_POST);
-    }
-    function addOrder()
-    {
-        print_r($_POST);
-        $produce = $this->model('Order');
-        $produce->addProduce($_POST);
     }
     function addProduceCategory()
     {

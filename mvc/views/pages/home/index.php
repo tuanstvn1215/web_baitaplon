@@ -4,13 +4,13 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item carousel-item-1 active">
-
+                    <img src="<?= host ?>/public/images/banner/banner1.jpg" alt="">
                 </div>
                 <div class="carousel-item carousel-item-2">
-
+                    <img src="<?= host ?>/public/images/banner/banner2.jpg" alt="">
                 </div>
                 <div class="carousel-item carousel-item-3">
-
+                    <img src="<?= host ?>/public/images/banner/banner3.jpg" alt="">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
