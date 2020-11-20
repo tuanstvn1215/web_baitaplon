@@ -8,32 +8,9 @@ class Home extends Controller
         $AllProduce = $produce->getAllProduce();
         $produce->getAllProduce();
         $block = ['header', 'footer'];
-        $index = $this->view('home', $data = ['page' => 'index', 'block' => $block, 'AllProduce' => $AllProduce]);
+        $index = $this->view('home', ['page' => 'index', 'block' => $block, 'AllProduce' => $AllProduce]);
     }
 
-    function addProduce()
-    {
-        $produce = $this->model('ProduceModel');
-        $produce->addProduce($_POST);
-    }
-    function addEmployee()
-    {
-        print_r($_POST);
-        $produce = $this->model('EmployeeModel');
-        $produce->addEmployee($_POST);
-    }
-    function addCustomer()
-    {
-        print_r($_POST);
-        $produce = $this->model('CustomerModel');
-        $produce->addCustomer($_POST);
-    }
-    function addProduceCategory()
-    {
-        print_r($_POST);
-        $produce = $this->model('ProduceCategoryModel');
-        $produce->addCategory($_POST);
-    }
     function addOrderDetail()
     {
         print_r($_POST);

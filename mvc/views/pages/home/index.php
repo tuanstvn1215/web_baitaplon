@@ -58,7 +58,8 @@
         for ($i = 0; $i < count($data['AllProduce']); $i++) {
             echo '<div class="col-2">
                             <a href=".chitiethanghoa/dd" class="products-item">
-                                <img class="products-item-img" src="' . host . $data['AllProduce'][$i]['Hinh'] . '" alt="">
+                            <div class="products-item-img"></div>    
+                            <img class="products-item-img" src="' . host . $data['AllProduce'][$i]['Hinh'] . '" alt="">
                                 <p>
                                 ' . $data['AllProduce'][$i]['MoTaHH'] . '
                                     <!-- 26 chữ -->

@@ -18,8 +18,7 @@ CREATE TABLE HangHoa
 	MaNhom char(23) not null,
 	Hinh varchar(255) not null,
 	MoTaHH varchar(255),
-	CHECK(Gia>=0),
-	CHECK (SoLuongHang>=0),
+	CHECK(Gia>=0 and SoLuongHang>=0),
 	CONSTRAINT fk_NhomHangHoa FOREIGN KEY (MaNhom) REFERENCES NhomHangHoa(MaNhom)
 
 )
@@ -40,7 +39,8 @@ CREATE TABLE KhachHang
 (
 	MSKH varchar(30) PRIMARY KEY,
 	HoTenKH varchar(255) not null,
-	DiaChi varchar(255) not null,
+	Email varchar(255) not null UNIQUE,
+	DiaChi varchar(255),
 	SoDienThoai varchar(10) not null,
 	MatKhau varchar(255) not null
 )
@@ -66,7 +66,7 @@ CREATE TABLE ChiTietDatHang
 	MSHH char(23) not null,
 	SoLuong tinyint not null,
 	GiaDatHang real,
-	CHECK (SoLuong>=1)
+	CHECK (SoLuong>=1),
 	CONSTRAINT pk_ChiTietDatHang PRIMARY KEY (SoDonDH,MSHH),
 	CONSTRAINT pk_HangHoa FOREIGN KEY (MSHH) REFERENCES HangHoa(MSHH),
 	CONSTRAINT pk_DatHang FOREIGN KEY (SoDonDH) REFERENCES DatHang(SoDonDH)
@@ -76,17 +76,16 @@ insert into NhanVien
 values ('NV_123','Trần Anh Tuấn','Admin','Sóc Trăng','0899016864','123123'),
  		('NV_124','Nguyễn Văn Tèo','NhanVien','Cần Thơ','0124257887','123123');
 insert into  KhachHang
-values ('KH_123','Trần Thị Thảo','Bạc Liêu','0355245645','1231223'),
-		('KH_124','Trần Anh Khoa','Bạc Liêu','0355243645','1231223');
+values ('KH_123','Trần Thị Thảo','dfsdsfsdfsd@gmail.com','Bạc Liêu','0355245645','1231223'),
+		('KH_124','Trần Anh Khoa','dfsdsffsdfsd@gmail.com','Bạc Liêu','0355243645','1231223');
 insert into NhomHangHoa 
 values ('TV001','TIVI màn hình cong'),
  		('COC12','TIVI màn hình phẳng');
 insert into HangHoa
-values ('COC12','TiVi Samsmung',10000000,12,'COC12','dfsdfsdfsd','Đây là TV'),
-		('COC14','TiVi LG',10000000,10,'COC13','dfsdfsdfsd','Đây là TV');
+values ('COC12','TiVi Samsmung',10000000,12,'TV001','dfsdsfsdfsd@gmail.com','Đây là TV'),
+		('COC14','TiVi LG',10000000,10,'COC12','dfsdfsdfsd@gmail.com','Đây là TV');
 
-insert into (column)
-values (values)
+
 INSERT INTO `dathang` (`SoDonDH`, `MSKH`, `MSNV`, `NgayDH`, `TrangThai`) VALUES ('COC12', 'KH_123', 'NV_123', CURRENT_TIMESTAMP, 'chua xem');
 
 

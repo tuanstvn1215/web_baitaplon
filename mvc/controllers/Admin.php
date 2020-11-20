@@ -17,20 +17,25 @@ class Admin extends Controller
     {
         header('Location: ' . host . '/admin/getAllOrder');
     }
-    function getCustumerIndex()
+    function getAllCustumer()
     {
+        $CustumerModel = $this->model('CustumerModel');
+        $Custumers = $CustumerModel->getAllCustumer();
     }
-    function getEmployeeIndex()
+    function getAllEmployeeIndex()
     {
     }
     function getAllOrder()
     {
+        $OrderModel = $this->model('OrderModel');
+        $AllOrder = $OrderModel->getAllOrder();
+        $this->view('admin', ['page' => 'AllOrder', 'AllOrder' => $AllOrder]);
     }
     function getAddProduce()
     {
         $ProduceCategoryModel = $this->model('ProduceCategoryModel');
         $ProduceCategorys = $ProduceCategoryModel->getAllCategory();
-        $ProduceCategoryView = $this->view('testadminaddproduce', $data = ['ProduceCategorys' => $ProduceCategorys]);
+        $this->view('admin', ['page' => 'addProduce', 'ProduceCategorys' => $ProduceCategorys]);
     }
     function postAddProduce()
     {
@@ -60,11 +65,13 @@ class Admin extends Controller
             echo 'đã lưu thành công hình ảnh ' . $upload_target;
             $ProduceModel = $this->model('ProduceModel');
             var_dump($_POST);
-            if ($ProduceModel->addProduce([$_POST['MSHH'], $_POST['TenHH'], $_POST['Gia'], $_POST['SoLuongHang'], $_POST['MaNhom'], $_POST['Hinh'], $_POST['MoTaHH']])) {
+            if (!$ProduceModel->addProduce([$_POST['MSHH'], $_POST['TenHH'], $_POST['Gia'], $_POST['SoLuongHang'], $_POST['MaNhom'], $_POST['Hinh'], $_POST['MoTaHH']])) {
+                unlink($upload_target);
+                throw 'lưu thât bại';
             }
         } catch (Exception $ex) {
-            echo $ex->getMessage();
             echo $ex->getTraceAsString();
+            echo $ex->getMessage();
         }
     }
 
