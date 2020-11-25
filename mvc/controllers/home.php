@@ -22,4 +22,10 @@ class Home extends Controller
         $produce = $this->model('ProduceModel');
         $produce->setProduce($_POST);
     }
+    function details($ProduceId)
+    {
+        $produceModel = $this->model('ProduceModel');
+        $produce = $produceModel->getProduce($ProduceId);
+        $Produceview = $this->view('home', ['page' => 'details', 'Produce' => $produce]);
+    }
 }

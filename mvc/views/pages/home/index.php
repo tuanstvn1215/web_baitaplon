@@ -55,24 +55,24 @@
     <div class="row">
 
         <?php
-        for ($i = 0; $i < count($data['AllProduce']); $i++) {
-            echo '<div class="col-2">
-                            <a href=".chitiethanghoa/dd" class="products-item">
-                            <div class="products-item-img"></div>    
-                            <img class="products-item-img" src="' . host . $data['AllProduce'][$i]['Hinh'] . '" alt="">
-                                <p>
-                                ' . $data['AllProduce'][$i]['MoTaHH'] . '
-                                    <!-- 26 chữ -->
-                                </p>
-                                <div>
-                                    <div class="products-item-price">
-                                        ' . $data['AllProduce'][$i]['Gia'] . '
-                                    </div>
-                                </div>
-                            </a>
-                        </div>';
-        }
-        ?>
+        for ($i = 0; $i < count($data['AllProduce']); $i++) { ?>
+            <div class="col-2">
+                <a href=".chitiethanghoa/dd" class="products-item">
+                    <div class="products-item-img"></div>
+                    <img class="products-item-img" src="<?= host . $data['AllProduce'][$i]['Hinh'] ?>" alt="">
+                    <p>
+                        <?= $data['AllProduce'][$i]['MoTaHH'] ?>
+                        <!-- 26 chữ -->
+                    </p>
+                    <div>
+                        <div class="products-item-price">
+                            <?= $data['AllProduce'][$i]['Gia'] ?>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        <?php } ?>
 
     </div>
 </div>

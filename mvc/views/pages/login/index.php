@@ -14,7 +14,7 @@
             <div class="tab-item is-active">Đăng Nhập</div>
         </div>
         <h1 class='signup-heading'>Đăng Nhập</h1>
-        <form class="signup-form" autocomplete="off">
+        <form class="signup-form" action="<?= host ?>/Login/postLogin" method="POST">
             <div class="form-group">
                 <label for="name" class="form-label">Tài Khoản</label>
                 <input type="text" id="MSKH" class="form-input" placeholder="B1704786" required name="MSKH">

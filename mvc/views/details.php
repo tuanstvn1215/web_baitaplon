@@ -16,7 +16,7 @@
 
 <body>
     <link rel="stylesheet" href="index.css">
-    <div class="header container-fluid ">
+    <div class="header container-fluid">
         <div class="header-top container ">
             <div class="header-top-right">
                 <a href="#">Đăng Kí</a>

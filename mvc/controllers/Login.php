@@ -26,13 +26,12 @@ class Login extends Controller
         if (isset($Customer['MSKH'])) {
             if ($_POST['MatKhau'] == $Customer['MatKhau']) {
                 $_SESSION['MSKH'] = $_POST['MatKhau'];
-                echo 'dang nhap thanh cong';
-                header('Location: /B1704786/home/index');
+                header('Location: ' . host . '/home/index');
             } else {
-                echo 'dang nhap that bai';
+                $this->alert('sai mật khẩu');
             }
         } else {
-            echo 'khong co tai khoan';
+            $this->alert('tài khoản không tồn tại');
         }
     }
     function postSignUp()

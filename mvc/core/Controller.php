@@ -14,7 +14,7 @@ class Controller
     public function view($view, $data = [])
     {
         require_once('./mvc/views/' . $view . '.php');
-    }
+    } //middleware
     public function middleware($middleware)
     {
         require_once('./mvc/middlewares/' . $middleware . '.php');
@@ -24,5 +24,9 @@ class Controller
     {
         require_once('./mvc/config/config.php');
         return new Config();
+    }
+    function alert($msg)
+    {
+        echo "<script type='text/javascript'>alert('$msg');</script>";
     }
 }

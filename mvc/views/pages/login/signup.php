@@ -11,8 +11,7 @@
             <div class="tab-item is-active">Đăng Kí</div>
             <a href="<?= host ?>/login/index" class="tab-item">Đăng Nhập</a>
         </div>
-
-        <form class="signup-form" action="<?= host ?>/Login/postSignup" method="POST" autocomplete="off">
+        <form class="signup-form" action="<?= host ?>/Login/postSignup" method="POST">
             <div class="form-group">
                 <label for="name" class="form-label">Họ và tên</label>
                 <input type="text" id="name" class="form-input" placeholder="Trần Anh Tuấn" required name="HoTenKH">
