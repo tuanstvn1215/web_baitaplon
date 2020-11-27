@@ -27,4 +27,8 @@ class ProduceModel extends Db
         return $this->Set($this->table, $this->id_field, $data);
         //trả về true false
     }
+    public function deleteProduce($id)
+    {
+        $this->Delete($this->table, $id, $this->id_field);
+    }
 }

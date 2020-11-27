@@ -91,4 +91,17 @@ class Db
         }
         return false;
     }
+    public function Delete($table, $id, $idName)
+    {
+        try {
+            $querry_string = 'DELETE FROM `' . $table . '` WHERE  ' . $idName . '=?';
+            $statment = $this->conn->prepare($querry_string);
+            $statment->bind_param('s', $id);
+            $statment->execute();
+            return true;
+        } catch (\Throwable $th) {
+            return $th->getTrace();
+            //throw $th;
+        }
+    }
 }

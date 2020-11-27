@@ -24,7 +24,7 @@
             <div class="header-top-right">
                 <?php
 
-                if ($data['user']) {
+                if (isset($data['user'])) {
                     require_once('./mvc/views/pages/block/Infomation.php');
                 } else {
                     require_once('./mvc/views/pages/block/loginlink.php');

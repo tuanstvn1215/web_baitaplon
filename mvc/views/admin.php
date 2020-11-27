@@ -44,7 +44,7 @@
             background-color: #3b3b3b;
             color: #d6d6d6;
             z-index: 1;
-            width: 33px;
+            width: max-content;
             transition: width 100ms linear;
             box-shadow: 0px 0px 5px 0px #3b3b3b;
             padding: 5px 5px 5px 5px;
@@ -54,6 +54,7 @@
         }
 
         .menu-icon {
+
             text-align: end;
 
         }
@@ -70,7 +71,27 @@
         .menu-titl:hover {
             background-color: #696969;
             cursor: pointer;
+
         }
+
+        .menu-icon-container {}
+
+
+
+
+        .menu-icon {}
+
+        .menu-icon :hover {
+
+            background-color: #696969;
+            cursor: pointer;
+
+
+
+        }
+
+
+
 
         .menu-item {
             padding: 5px 5px 5px 5px;
@@ -90,6 +111,32 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0px 0px 5px 0px gainsboro;
+        }
+
+
+        .navbar-left {
+            display: flex;
+            direction: row;
+        }
+
+        .navbar-left-item {
+
+            padding: 5px;
+            border-right: 1px solid gainsboro;
+        }
+
+        .navbar-left-item:hover {
+            width: auto;
+            background-color: #dfdfdf;
+        }
+
+        .navbar-left-item a {
+            color: #3b3b3b;
+        }
+
+        .navbar-left-item a :hover {
+            color: #3b3b3b;
+
         }
 
 
@@ -185,26 +232,44 @@
         .main_content {
             width: 100%;
         }
+
+        a {
+
+            color: #d6d6d6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #d6d6d6;
+            text-decoration: none;
+        }
     </style>
     <div class="warpper">
         <div id='right-menu' class="right-menu">
-            <div class="menu-icon"><i onclick="right_menu()" class=" fas fa-bars menu-titl"></i>
+            <div class="menu-icon-container">
+                <div class="menu-icon" onclick="right_menu()"><i class=" fas fa-bars"></i></div>
             </div>
             <div id='menu-content' class="menu-content">
+
                 <div class="menu-group">
-                    <div class="menu-titl"> <i class="fas fa-box-open"></i> Hàng hóa</div>
-                    <div class="menu-item"></div>
+                    <a href="<?= host ?>/admin/getAllOrder">
+                        <div class="menu-titl"><i class="fas fa-file-invoice"></i> Đơn đặt hàng</div>
+                    </a>
                     <div class="menu-item"></div>
                     <div class="menu-item"></div>
                     <div class="menu-item"></div>
                 </div>
                 <div class="menu-group">
 
-                    <div class="menu-titl"><i class="fas fa-file-invoice"></i> Đơn đặt hàng</div>
+                    <a href="<?= host ?>/admin/getAllProduce">
+                        <div class="menu-titl"> <i class="fas fa-box-open"></i> Hàng hóa</div>
+                    </a>
+                    <div class="menu-item"></div>
                     <div class="menu-item"></div>
                     <div class="menu-item"></div>
                     <div class="menu-item"></div>
                 </div>
+
                 <div class="menu-group">
                     <div class="menu-titl"> <i class="fas fa-user-friends"></i> Khách hàng</div>
                     <div class="menu-item"><i class="fas fa-users-class"></i></div>
@@ -216,7 +281,12 @@
         <div class="content">
             <div class="navbar">
                 <div class="navbar-left">
-                    <div class="navbar-icon"></div>
+                    <div class="navbar-left-item">
+                        <a href="#">
+                            <div>Trang Chủ</div>
+                        </a>
+                    </div>
+                    <div class="navbar-left-item">sdfsd</div>
                 </div>
                 <div class="navbar-right">
                     <div class="navbar-right-item">

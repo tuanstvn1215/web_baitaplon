@@ -34,20 +34,20 @@
                 <?= $Produce['TenHH'] ?>
             </td>
             <td class="table-item-details">
-                sdfsdfsdf
+                <?= $Produce['TenNhom'] ?>
             </td>
             <td class="table-item-details">
-                sdfsdfsdf
+                <?= $Produce['Gia'] ?>
             </td>
             <td class="table-item-details">
-                sdfsdfsdf
+                <?= $Produce['SoLuongHang'] ?>
             </td>
             <td class="table-item-btn" class="table-item-details">
-                <a class="btn btn-success btn-sm" href="">Xem Chi Tiết</a>
+                <a class="btn btn-success btn-sm" href="<?= host ?>/admin/detailsProduce/<?= $Produce['MSHH'] ?>">Xem Chi Tiết</a>
 
             </td>
             <td class="table-item-btn">
-                <a class="btn btn-danger btn-sm" href="">Xóa Sản Phẩm</a>
+                <a class="btn btn-danger btn-sm" href="<?= host ?>/admin/deleteProduce/<?= $Produce['MSHH'] ?>">Xóa Sản Phẩm</a>
             </td>
 
         </tr>

@@ -34,9 +34,18 @@ class Admin extends Controller
     function getAllProduce()
     {
         $ProduceModel = $this->model('ProduceModel');
-        $Produce = $ProduceModel->getAllProduce();
+        $Produces = $ProduceModel->getAllProduce();
 
-        $this->view('admin', ['page' => 'AllProduce', 'Produce' => $Produce]);
+        $ProduceCategoryModel = $this->model('ProduceCategoryModel');
+        $ProduceCategorys = $ProduceCategoryModel->getAllCategory();
+        for ($i = 0; $i < count($Produces); $i++) {
+            foreach ($ProduceCategorys as $ProduceCategory) {
+                if ($Produces[$i]['MaNhom'] == $ProduceCategory['MaNhom']) {
+                    $Produces[$i]['TenNhom'] = $ProduceCategory['TenNhom'];
+                }
+            }
+        }
+        $this->view('admin', ['page' => 'AllProduce', 'Produce' => $Produces]);
     }
     function getAddProduce()
     {
@@ -71,7 +80,9 @@ class Admin extends Controller
             }
             echo 'đã lưu thành công hình ảnh ' . $upload_target;
             $ProduceModel = $this->model('ProduceModel');
-            var_dump($_POST);
+            $arrMoTaHH = preg_split('/\,/', $_POST['MoTaHH']);
+            $_POST['MoTaHH'] = json_encode($arrMoTaHH, JSON_UNESCAPED_UNICODE);
+            var_dump(json_decode($_POST['MoTaHH'], true));
             if (!$ProduceModel->addProduce([$_POST['MSHH'], $_POST['TenHH'], $_POST['Gia'], $_POST['SoLuongHang'], $_POST['MaNhom'], $_POST['Hinh'], $_POST['MoTaHH']])) {
                 unlink($upload_target);
                 throw 'lưu thât bại';
@@ -80,6 +91,15 @@ class Admin extends Controller
             echo $ex->getTraceAsString();
             echo $ex->getMessage();
         }
+    }
+    function detailsProduce($id)
+    {
+    }
+    function deleteProduce($id)
+    {
+        $ProduceModel = $this->model('ProduceModel');
+        $ProduceModel->deleteProduce($id);
+        header('Location: ' . host . '/admin/getAllProduce');
     }
 
     function changeStageOder()
