@@ -7,22 +7,22 @@ class Controller
     }
     public function model($model)
     {
-        require_once('./mvc/models/' . $model . '.php');
+        require_once './mvc/models/' . $model . '.php';
         return new $model;
     }
     //View
     public function view($view, $data = [])
     {
-        require_once('./mvc/views/' . $view . '.php');
+        require_once './mvc/views/' . $view . '.php';
     } //middleware
     public function middleware($middleware)
     {
-        require_once('./mvc/middlewares/' . $middleware . '.php');
+        require_once './mvc/middlewares/' . $middleware . '.php';
         return new $middleware;
     }
     public function config()
     {
-        require_once('./mvc/config/config.php');
+        require_once './mvc/config/config.php';
         return new Config();
     }
     function alert($msg)

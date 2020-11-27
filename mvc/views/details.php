@@ -98,24 +98,22 @@
         </div>
         <div class="products">
             <div class="row">
-                <?php
-                for ($i = 0; $i < count($hanghoa); $i++) {
-                    echo '<div class="col-2">
-                            <a href=".chitiethanghoa/dd" class="products-item">
-                                <img class="products-item-img" src="' . $hanghoa[$i]['Hinh'] . '" alt="">
-                                <p>
+                <?php for ($i = 0; $i < count($hanghoa); $i++) { ?>
+                    <div class="col-2">
+                        <a href=".chitiethanghoa/dd" class="products-item">
+                            <img class="products-item-img" src="' . $hanghoa[$i]['Hinh'] . '" alt="">
+                            <p>
                                 ' . $hanghoa[$i]['MoTaHH'] . '
-                                    <!-- 26 chữ -->
-                                </p>
-                                <div>
-                                    <div class="products-item-price">
-                                        ' . $hanghoa[$i]['Gia'] . '
-                                    </div>
+                                <!-- 26 chữ -->
+                            </p>
+                            <div>
+                                <div class="products-item-price">
+                                    ' . $hanghoa[$i]['Gia'] . '
                                 </div>
-                            </a>
-                        </div>';
-                }
-                ?>
+                            </div>
+                        </a>
+                    </div>
+                <?php } ?>
 
             </div>
         </div>

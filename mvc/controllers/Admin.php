@@ -31,6 +31,13 @@ class Admin extends Controller
         $AllOrder = $OrderModel->getAllOrder();
         $this->view('admin', ['page' => 'AllOrder', 'AllOrder' => $AllOrder]);
     }
+    function getAllProduce()
+    {
+        $ProduceModel = $this->model('ProduceModel');
+        $Produce = $ProduceModel->getAllProduce();
+
+        $this->view('admin', ['page' => 'AllProduce', 'Produce' => $Produce]);
+    }
     function getAddProduce()
     {
         $ProduceCategoryModel = $this->model('ProduceCategoryModel');

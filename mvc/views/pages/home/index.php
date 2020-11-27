@@ -54,10 +54,9 @@
 <div class="products">
     <div class="row">
 
-        <?php
-        for ($i = 0; $i < count($data['AllProduce']); $i++) { ?>
+        <?php for ($i = 0; $i < count($data['AllProduce']); $i++) : ?>
             <div class="col-2">
-                <a href=".chitiethanghoa/dd" class="products-item">
+                <a href=<?= host . '/home/details/' . $data['AllProduce'][$i]['MSHH'] ?> class="products-item">
                     <div class="products-item-img"></div>
                     <img class="products-item-img" src="<?= host . $data['AllProduce'][$i]['Hinh'] ?>" alt="">
                     <p>
@@ -71,8 +70,7 @@
                     </div>
                 </a>
             </div>
-
-        <?php } ?>
+        <?php endfor ?>
 
     </div>
 </div>

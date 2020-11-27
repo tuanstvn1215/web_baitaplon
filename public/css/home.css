@@ -36,6 +36,8 @@ a {
 .header-top-right {
     display        : flex;
     justify-content: space-between;
+    position       : relative;
+
 }
 
 .header-top-right-item {

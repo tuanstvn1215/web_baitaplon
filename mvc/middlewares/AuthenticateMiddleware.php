@@ -9,8 +9,8 @@ class AuthenticateMiddleware extends Middleware
     }
     function requireEmployee()
     {
-        // if (!isset($_SESSION['MSNV'])) {
-        //     header('Location: ' . host . '/home/index');
-        // }
+        if (!isset($_SESSION['MSNV'])) {
+            header('Location: ' . host . '/home/index');
+        }
     }
 }

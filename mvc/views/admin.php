@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ==" crossorigin="anonymous"></script>
@@ -23,6 +24,7 @@
 
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
 
         }
 
@@ -35,16 +37,15 @@
             padding: 5px 5px 5px 5px;
             min-height: 768px;
             height: 100%;
-            transition: width 200ms linear;
+            transition: width 100ms linear;
         }
 
         .right-menu-hidden {
-            z-index: 1;
             background-color: #3b3b3b;
             color: #d6d6d6;
-            position: absolute;
+            z-index: 1;
             width: 33px;
-            transition: width 200ms linear;
+            transition: width 100ms linear;
             box-shadow: 0px 0px 5px 0px #3b3b3b;
             padding: 5px 5px 5px 5px;
             min-height: 768px;
@@ -54,19 +55,19 @@
 
         .menu-icon {
             text-align: end;
+
         }
 
         .menu_content-hidden {
             display: none;
         }
 
-        .menu-title {
-            padding: 10px 10px 10px 10px;
-            border-radius: 5px;
-
+        .svg-inline--fa.fa-w-14 {
+            height: 25px;
+            width: 25px;
         }
 
-        .menu-title:hover {
+        .menu-titl:hover {
             background-color: #696969;
             cursor: pointer;
         }
@@ -120,7 +121,6 @@
         .notification-icon-circle {
 
             position: absolute;
-
             right: 0px;
             width: 8px;
             height: 8px;
@@ -177,14 +177,22 @@
         .sign-out:hover {
             color: #838383;
         }
+
+        .content {
+            width: 100%;
+        }
+
+        .main_content {
+            width: 100%;
+        }
     </style>
     <div class="warpper">
         <div id='right-menu' class="right-menu">
-            <div class="menu-icon"><i onclick="right_menu()" class="menu-title fas fa-bars"></i>
+            <div class="menu-icon"><i onclick="right_menu()" class=" fas fa-bars menu-titl"></i>
             </div>
             <div id='menu-content' class="menu-content">
                 <div class="menu-group">
-                    <div class="menu-title"> <i class="fas fa-box-open"></i> Hàng hóa</div>
+                    <div class="menu-titl"> <i class="fas fa-box-open"></i> Hàng hóa</div>
                     <div class="menu-item"></div>
                     <div class="menu-item"></div>
                     <div class="menu-item"></div>
@@ -192,19 +200,18 @@
                 </div>
                 <div class="menu-group">
 
-                    <div class="menu-title"><i class="fas fa-file-invoice"></i> Đơn đặt hàng</div>
+                    <div class="menu-titl"><i class="fas fa-file-invoice"></i> Đơn đặt hàng</div>
                     <div class="menu-item"></div>
                     <div class="menu-item"></div>
                     <div class="menu-item"></div>
                 </div>
                 <div class="menu-group">
-                    <div class="menu-title"> <i class="fas fa-user-friends"></i> Khách hàng</div>
+                    <div class="menu-titl"> <i class="fas fa-user-friends"></i> Khách hàng</div>
                     <div class="menu-item"><i class="fas fa-users-class"></i></div>
                     <div class="menu-item"></div>
                     <div class="menu-item"></div>
                 </div>
             </div>
-
         </div>
         <div class="content">
             <div class="navbar">
@@ -224,7 +231,7 @@
                             <div class="notification-item"></div>
                         </div>
                     </div>
-                    <div class="navbar-right-item"><a class="sign-out" href=""><i class="fas fa-sign-out-alt"></i></a>
+                    <div class="navbar-right-item"><a class="sign-out" href="<?= host ?>/home/postLogout"><i class="fas fa-sign-out-alt"></i></a>
                     </div>
                     <div class="navbar-right-item"></div>
                 </div>

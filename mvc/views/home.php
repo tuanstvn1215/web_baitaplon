@@ -15,15 +15,16 @@
 </head>
 
 <body>
-    <link rel="stylesheet" href='/B1704786/public/css/home.css'>
+    <link rel="stylesheet" href='<?= host ?>/public/css/home.css'>
     <div class="header container-fluid">
         <div class="header-top container ">
-            <div class="header-top-right">
+            <div class="header-top-left">
                 <a href="#">Tuấn B1704786</a>
             </div>
             <div class="header-top-right">
                 <?php
-                if (isset($_SESSION['MSKH']) || isset($_SESSION['MSVN'])) {
+
+                if ($data['user']) {
                     require_once('./mvc/views/pages/block/Infomation.php');
                 } else {
                     require_once('./mvc/views/pages/block/loginlink.php');

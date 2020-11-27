@@ -25,8 +25,20 @@ class Login extends Controller
         $Customer = $CustomerModel->getCustomer($_POST['MSKH']);
         if (isset($Customer['MSKH'])) {
             if ($_POST['MatKhau'] == $Customer['MatKhau']) {
-                $_SESSION['MSKH'] = $_POST['MatKhau'];
+                $_SESSION['MSKH'] = $_POST['MSKH'];
                 header('Location: ' . host . '/home/index');
+            } else {
+                $this->alert('sai mật khẩu');
+            }
+        } else {
+            $this->alert('tài khoản không tồn tại');
+        }
+        $EmployeeModel = $this->model('EmployeeModel');
+        $Employee = $EmployeeModel->getEmployee($_POST['MSKH']);
+        if (isset($Employee['MSNV'])) {
+            if ($_POST['MatKhau'] == $Employee['MatKhau']) {
+                $_SESSION['MSNV'] = $_POST['MSKH'];
+                header('Location: ' . host . '/admin');
             } else {
                 $this->alert('sai mật khẩu');
             }

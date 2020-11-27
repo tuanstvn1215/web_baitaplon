@@ -4,11 +4,22 @@ class Home extends Controller
 {
     function index()
     {
+        $user = null;
         $produce = $this->model('ProduceModel');
         $AllProduce = $produce->getAllProduce();
         $produce->getAllProduce();
-        $block = ['header', 'footer'];
-        $index = $this->view('home', ['page' => 'index', 'block' => $block, 'AllProduce' => $AllProduce]);
+
+        if (isset($_SESSION['MSKH'])) {
+            $CustomerModel = $this->model('CustomerModel');
+            $user = $CustomerModel->getCustumer($_SESSION['MSKH']);
+        }
+
+        if (isset($_SESSION['MSNV'])) {
+            $EmployeeModel = $this->model('EmployeeModel');
+            $user = $EmployeeModel->getEmployee($_SESSION['MSNV']);
+        }
+
+        $index = $this->view('home', ['page' => 'index', 'AllProduce' => $AllProduce, 'user' => $user]);
     }
 
     function addOrderDetail()
@@ -27,5 +38,10 @@ class Home extends Controller
         $produceModel = $this->model('ProduceModel');
         $produce = $produceModel->getProduce($ProduceId);
         $Produceview = $this->view('home', ['page' => 'details', 'Produce' => $produce]);
+    }
+    function postLogout()
+    {
+        session_destroy();
+        header('Location: ' . host . '/home/index');
     }
 }
