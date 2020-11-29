@@ -16,8 +16,8 @@ CREATE TABLE HangHoa
 	Gia int not null,
 	SoLuongHang tinyint not null,
 	MaNhom char(23) not null,
-	Hinh varchar(255) not null,
-	MoTaHH varchar(255),
+	Hinh varchar(1000) not null,
+	MoTaHH varchar(1000),
 	CHECK(Gia>=0 and SoLuongHang>=0),
 	CONSTRAINT fk_NhomHangHoa FOREIGN KEY (MaNhom) REFERENCES NhomHangHoa(MaNhom)
 

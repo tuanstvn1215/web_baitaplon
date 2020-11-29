@@ -44,4 +44,10 @@ class Home extends Controller
         session_destroy();
         header('Location: ' . host . '/home/index');
     }
+
+
+    function test()
+    {
+        var_dump($_POST['test']);
+    }
 }

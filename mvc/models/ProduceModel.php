@@ -7,12 +7,19 @@ class ProduceModel extends Db
 
     {
         //gọi hàm lấy dữ liệu từ cơ sở dữ liệu từ lớp cha
+
         $Produces = $this->GetAll($this->table);
+        for ($i = 0; $i < count($Produces); $i++) {
+            $Produces[$i]['Hinh'] = json_decode($Produces[$i]['Hinh']);
+            $Produces[$i]['MoTaHH'] = json_decode($Produces[$i]['MoTaHH']);
+        }
         return $Produces;
     }
     public function  getProduce($id)
     {
         $Produce = $this->Get($this->table, $this->id_field, $id);
+        $Produce['Hinh'] = json_decode($Produce['Hinh']);
+        $Produce['MoTaHH'] = json_decode($Produce['MoTaHH']);
         return $Produce;
     }
 

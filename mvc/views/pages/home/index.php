@@ -58,9 +58,9 @@
             <div class="col-2">
                 <a href=<?= host . '/home/details/' . $data['AllProduce'][$i]['MSHH'] ?> class="products-item">
                     <div class="products-item-img"></div>
-                    <img class="products-item-img" src="<?= host . $data['AllProduce'][$i]['Hinh'] ?>" alt="">
+                    <img class="products-item-img" src="<?= host . $data['AllProduce'][$i]['Hinh'][0] ?>" alt="">
                     <p>
-                        <?= $data['AllProduce'][$i]['MoTaHH'] ?>
+                        <?= $data['AllProduce'][$i]['MoTaHH'][0] ?>
                         <!-- 26 chữ -->
                     </p>
                     <div>

@@ -18,23 +18,23 @@
     <div class='form'>
         <div class="form-item-group">
             <label for="">Tên hàng hóa:</label>
-            <input class="form-input" type="text" placeholder="tên hàng hóa" name="TenHH">
+            <input class="form-input" type="text" placeholder="tên hàng hóa" name="TenHH" required>
         </div>
         <div class="form-item-group">
             <label for="">Giá hàng hóa:</label>
-            <input class="form-input" type="text" name="Gia">
+            <input class="form-input" type="text" name="Gia" required>
         </div>
         <div class="form-item-group">
             <label for="">Số lượng hàng</label>
-            <input class="form-input" type="text" name="SoLuongHang">
+            <input class="form-input" type="text" name="SoLuongHang" required>
         </div>
         <div class="form-item-group">
             <label for="">Hình ảnh hàng hóa</label>
-            <input class="form-input" type="file" name="Hinh">
+            <input class="form-input" name="Hinh[]" type="file" multiple="multiple" required />
         </div>
         <div class="form-item-group">
             <label for="">Nhóm hàng hóa</label>
-            <select class="form-select" name="MaNhom">
+            <select class="form-select" name="MaNhom" required>
                 <?php
                 foreach ($data['ProduceCategorys'] as $key => $value) {
                     echo '<option value=' . $value['MaNhom'] . '>' . $value['TenNhom'] . ' </option>';
@@ -45,7 +45,7 @@
         </div>
         <div class="form-item-group">
             <label for="">Mô tả hàng hóa</label>
-            <input type="text" name="MoTaHH">
+            <input type="text" name="MoTaHH" required>
         </div>
         <div class="form-item-group">
             <label for=""></label>

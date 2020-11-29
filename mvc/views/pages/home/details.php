@@ -1,82 +1,72 @@
-<style>
-    .container {
-        margin: 0 auto;
-        width: 1140px;
-    }
-
-    .details {
-        border: 1px solid gainsboro;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .details-left {
-        border-right: 1px solid gainsboro;
-        padding: 5px;
-        width: 130px;
-        height: 100vh;
-
-    }
-
-    .small-img {
-        width: 100%;
-    }
-
-    .small-img img {
-        width: 100%;
-    }
-
-    .details-center {
-        border-right: 1px solid gainsboro;
-        padding: 5px;
-        width: 410px;
-        height: 100vh;
-
-    }
-
-    .img {
-        width: 100%;
-    }
-
-    .img img {
-        width: 100%;
-    }
-
-    .details-right {
-        padding: 5px;
-        width: 600px;
-        height: 100vh;
-
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-    }
-
-    .content-header {
-        font-size: xx-large;
-        font-weight: 100;
-    }
-</style>
+<link rel="stylesheet" href='<?= host ?>/public/css/home/detail.css'>
 <div class="container">
     <div class="details">
         <div class="details-left">
             <div class="small-img">
-                <img src="http://baodulich.net.vn/data/data/haubg/2018/anh-dep-du-lich/1-2018/21462761_1125939480874318_4665203301540550833_n.jpg" alt="">
+                <?php for ($i = 0; $i < count($data['Produce']['Hinh']); $i++) : ?>
+                    <div class="small-img-item"> <img onmouseover="change_img(event)" class="small-img-item-inner" src="<?= host . $data['Produce']['Hinh'][$i] ?>" alt="">
+                    </div>
+                <?php endfor ?>
             </div>
         </div>
         <div class="details-center">
-            <div class="img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUvIqA55ledNqJA4By_ypZyXYlBUwNtN1gQ1CldOgn0xxVsCLGr_s4it7FlNWCn3bFq6WGPqYoxmczNa77geH9GA0fILHA7hc&usqp=CAU&ec=45725304" alt=""></div>
+            <div class="img"><img id='main_img' src="<?= host . $data['Produce']['Hinh'][0] ?>" alt=""></div>
         </div>
         <div class="details-right">
-            <div class="content-header"><?php var_dump($data['Produce']) ?> Ti Vi</div>
+            <div class="content-header">
+                <div class="produce-title">
+                    <?= $data['Produce']['TenHH'] ?>
+                </div>
+                <div class="produce-price">
+                    <?= $data['Produce']['Gia'] ?>
+                </div>
+            </div>
             <div class="content-main">
 
+                <div class="content-describes">
+                    <ul class="content-describes-item">
+                        <?php for ($i = 0; $i < count($data['Produce']['MoTaHH']); $i++) : ?>
+                            <li><?= $data['Produce']['MoTaHH'][$i] ?></li>
+                        <?php endfor ?>
+                    </ul>
+                </div>
             </div>
-            <div class="content-buttons"></div>
+
+            <div class="content-buttons">
+                <div class="Produce-number">
+                    <div class="span">
+                        <div onclick="Produce_number_minus()" id="Produce-number--">-</div>
+                    </div>
+                    <input class="number" type="number" name="Produce-number" id="Produce-number" min="0">
+                    <div class="span">
+                        <div onclick="Produce_number_plus()" id="Produce-number-+">+</div>
+                    </div>
+                </div>
+            </div>
 
         </div>
-    </div>
+        <script>
+            function Produce_number_minus() {
+                let Produce_number = document.getElementById('Produce-number')
+                if (!(Produce_number.value = parseInt(Produce_number.value) - 1))
+                    Produce_number.value = 1
+            }
 
-</div>
+            function Produce_number_plus() {
+
+                let Produce_number = document.getElementById('Produce-number')
+                if (!(Produce_number.value = parseInt(Produce_number.value) + 1))
+                    Produce_number.value = 1
+
+            }
+
+            var images = document.getElementsByClassName('small-img-item-inner')
+
+            function change_img(e) {
+                e.target.getAttribute('src')
+                var main_img = document.getElementById('main_img')
+                main_img.setAttribute('src', e.target.getAttribute('src'))
+            }
+        </script>
+
+    </div>

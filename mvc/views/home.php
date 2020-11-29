@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <link rel="stylesheet" href='<?= host ?>/public/css/home.css'>
     <div class="header container-fluid">
         <div class="header-top container ">
@@ -34,7 +35,7 @@
 
         </div>
         <nav class="navbar navbar-expand navbar-dark header-bottom container">
-            <a class="nav-item"><img class="pic" src="<?= host ?>/public/picture/shop.svg"></a>
+            <a class="nav-item" href="<?= host ?>/home/index"><img class="pic" src="<?= host ?>/public/images/icon/index.png"></a>
             <form class="nav-item search-form-warp" method="get">
                 <div class="search-form">
                     <input class="search-input" type="text">

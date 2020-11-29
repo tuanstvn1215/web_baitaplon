@@ -55,36 +55,51 @@ class Admin extends Controller
     }
     function postAddProduce()
     {
+        if (!isset($_POST)) {
+            throw 'không phải post';
+        }
         try {
+            $files = $_FILES['Hinh'];
+            $names      = $files['name'];
+            $types      = $files['type'];
+            $tmp_names  = $files['tmp_name'];
+            $errors     = $files['error'];
+            $sizes      = $files['size'];
+
             $_POST['MSHH'] = uniqid('', true);
-            $FileType = pathinfo($_FILES["Hinh"]['name'], PATHINFO_EXTENSION);
-            $upload_target = $this->produce_img_cf['upload_dir'] . '\\' . $_POST['MSHH'] . date('__Y_m_d_h_i_sa') . '.' . $FileType;
-            $_POST['Hinh'] = $upload_target;
-            $this->produce_img_cf['upload_dir'];
-            if (!isset($_POST)) {
-                throw 'không phải post';
-            }
-            if ($_FILES["Hinh"]['error'] != 0) {
-                throw "Dữ liệu upload bị lỗi";
+            for ($i = 0; $i < count($names); $i++) {
+
+                $types[$i] = pathinfo($names[$i], PATHINFO_EXTENSION);
+                if (!in_array($types[$i], $this->produce_img_cf['allowImgTypes'])) {
+                    throw 'Chỉ được upload các định dạng JPG, PNG, JPEG';
+                }
+                if ($errors[$i] != 0) {
+                    throw "Dữ liệu upload bị lỗi";
+                }
+
+                if ($sizes[$i] > $this->produce_img_cf['maxImgsizebyte']) {
+                    throw 'Không được upload ảnh lớn hơn ' . $this->produce_img_cf['maxImgsizeMB'] . ' MB.';
+                }
+                $upload_target[$i] = $this->produce_img_cf['upload_dir'] . '/'  . $_POST['MSHH'] . '_' . $i . '.' . $types[$i];
+
+
+                if (!move_uploaded_file($tmp_names[$i], $upload_target[$i])) {
+                    throw 'upload lưu thất bại';
+                }
+                echo 'đã lưu thành công hình ảnh ' . $upload_target[$i];
+                # code...
             }
 
-            if (!in_array($FileType, $this->produce_img_cf['allowImgTypes'])) {
-                throw 'Chỉ được upload các định dạng JPG, PNG, JPEG';
-            }
 
-            if ($_FILES["Hinh"]["size"] > $this->produce_img_cf['maxImgsizebyte']) {
-                throw 'Không được upload ảnh lớn hơn ' . $this->produce_img_cf['maxImgsizeMB'] . ' MB.';
-            }
-            if (!move_uploaded_file($_FILES['Hinh']['tmp_name'], $upload_target)) {
-                throw 'upload lưu thất bại';
-            }
-            echo 'đã lưu thành công hình ảnh ' . $upload_target;
             $ProduceModel = $this->model('ProduceModel');
             $arrMoTaHH = preg_split('/\,/', $_POST['MoTaHH']);
+            $_POST['Hinh'] = json_encode($upload_target, JSON_UNESCAPED_UNICODE);
             $_POST['MoTaHH'] = json_encode($arrMoTaHH, JSON_UNESCAPED_UNICODE);
             var_dump(json_decode($_POST['MoTaHH'], true));
             if (!$ProduceModel->addProduce([$_POST['MSHH'], $_POST['TenHH'], $_POST['Gia'], $_POST['SoLuongHang'], $_POST['MaNhom'], $_POST['Hinh'], $_POST['MoTaHH']])) {
-                unlink($upload_target);
+                foreach ($upload_target as $target) {
+                    unlink($target);
+                }
                 throw 'lưu thât bại';
             }
         } catch (Exception $ex) {
